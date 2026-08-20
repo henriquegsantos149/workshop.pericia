@@ -61,12 +61,15 @@ export default async function handler(req, res) {
   const firstName = nameParts[0] || '';
   const lastName = nameParts.slice(1).join(' ');
 
+  const rawPhone = (phone || whatsapp || '').toString();
+  const cleanPhone = rawPhone.replace(/\D/g, '');
+
   const contactPayload = {
     contact: {
       email,
       firstName,
       lastName,
-      phone: phone || whatsapp,
+      phone: cleanPhone,
       fieldValues
     }
   };

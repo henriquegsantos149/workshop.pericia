@@ -195,6 +195,41 @@ function initEnrollmentForm() {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       
+      const phoneInput = form.querySelector('input[type="tel"]');
+      const iti = phoneInput ? phoneInput._iti : null;
+      let cleanPhone = '';
+
+      // Phone validation & sanitization (only raw digits sent)
+      if (phoneInput) {
+        const rawValue = phoneInput.value.trim();
+        if (iti) {
+          const countryData = iti.getSelectedCountryData();
+          if (countryData.iso2 === 'br') {
+            let digits = rawValue.replace(/\D/g, '');
+            if (digits.startsWith('55') && digits.length > 11) {
+              digits = digits.substring(2);
+            }
+            if (digits.length !== 11) {
+              phoneInput.setCustomValidity('Por favor, insira o DDD e o número com 9 dígitos (ex: 11999999999).');
+              phoneInput.reportValidity();
+              return;
+            }
+            // Envia estritamente os dígitos puros sem espaços, traços ou parênteses
+            cleanPhone = '55' + digits;
+          } else {
+            if (!iti.isValidNumber()) {
+              phoneInput.setCustomValidity('Número de telefone inválido para o país selecionado.');
+              phoneInput.reportValidity();
+              return;
+            }
+            const num = iti.getNumber();
+            cleanPhone = num ? num.replace(/\D/g, '') : (countryData.dialCode + rawValue.replace(/\D/g, ''));
+          }
+        } else {
+          cleanPhone = rawValue.replace(/\D/g, '');
+        }
+      }
+
       const submitBtn = form.querySelector('button[type="submit"]');
       if (!submitBtn) return;
 
@@ -207,15 +242,14 @@ function initEnrollmentForm() {
       const formData = new FormData(form);
       const name = formData.get('name') || '';
       const email = formData.get('email') || '';
-      const phone = formData.get('phone') || formData.get('whatsapp') || '';
       const education = formData.get('education') || formData.get('occupation') || '';
       const education_area = formData.get('education_area') || '';
 
       const formPayload = {
         name,
         email,
-        phone,
-        whatsapp: phone,
+        phone: cleanPhone,
+        whatsapp: cleanPhone,
         education,
         occupation: education,
         education_area
@@ -373,18 +407,54 @@ function initLightbox() {
   });
 }
 
-// Phone input validation and formatting
+// Phone input validation and formatting with intl-tel-input
 function initPhoneValidation() {
   const phoneInputs = document.querySelectorAll('input[type="tel"]');
   
-  phoneInputs.forEach(input => {
-    // Only allow numbers and limit to 11 digits
-    input.addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
-      if (value.length > 11) {
-        value = value.slice(0, 11); // Limit length to 11
+  phoneInputs.forEach(phoneInput => {
+    if (typeof window.intlTelInput === 'undefined') return;
+
+    // Initialize intlTelInput on the input element
+    const iti = window.intlTelInput(phoneInput, {
+      initialCountry: "br",
+      preferredCountries: ["br", "pt", "us", "es", "ao", "mz"],
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js",
+    });
+
+    // Attach instance to DOM node
+    phoneInput._iti = iti;
+
+    // Dynamic formatting on input
+    phoneInput.addEventListener('input', (e) => {
+      const countryData = iti.getSelectedCountryData();
+      if (countryData.iso2 === 'br') {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.startsWith('55') && value.length > 11) {
+          value = value.substring(2);
+        }
+        if (value.length > 11) {
+          value = value.substring(0, 11);
+        }
+        
+        let formattedValue = value;
+        if (value.length > 2) {
+          formattedValue = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+        }
+        if (value.length > 7) {
+          formattedValue = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7);
+        }
+        e.target.value = formattedValue;
+      } else {
+        let value = e.target.value.replace(/[^\d+\s-]/g, ''); 
+        e.target.value = value;
       }
-      e.target.value = value;
+      phoneInput.setCustomValidity('');
+    });
+
+    // Reset value on country change
+    phoneInput.addEventListener('countrychange', () => {
+      phoneInput.value = '';
+      phoneInput.setCustomValidity('');
     });
   });
 }
