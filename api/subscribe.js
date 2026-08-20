@@ -56,10 +56,16 @@ export default async function handler(req, res) {
   const currentDateTime = new Date().toISOString();
   addField(fieldValues, '865', currentDateTime);
 
+  // Separate firstName and lastName to cleanly overwrite any legacy data in ActiveCampaign
+  const nameParts = (name || '').trim().split(/\s+/);
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ');
+
   const contactPayload = {
     contact: {
       email,
-      firstName: name,
+      firstName,
+      lastName,
       phone: phone || whatsapp,
       fieldValues
     }
