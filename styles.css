@@ -515,6 +515,34 @@ a {
   }
 }
 
+.hero-event-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(184, 204, 59, 0.12);
+  border: 1px solid rgba(184, 204, 59, 0.3);
+  color: var(--color-primary);
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.hero-tag-item i, .hero-tag-item svg {
+  width: 15px;
+  height: 15px;
+}
+
 .hero-title {
   font-size: 2.05rem;
   font-weight: 800;
