@@ -829,12 +829,13 @@ a {
 }
 
 .track-title {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: #fff;
   font-family: var(--font-title);
   font-weight: 700;
   margin-bottom: 0;
   line-height: 1.35;
+  text-wrap: initial !important;
 }
 
 .track-items-list {
@@ -2884,6 +2885,8 @@ a {
 
   .track-title {
     font-size: 1.15rem;
+    line-height: 1.35;
+    text-wrap: initial !important;
   }
 
   .track-items-list .accordion-toggle {
