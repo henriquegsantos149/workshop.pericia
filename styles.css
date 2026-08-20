@@ -84,15 +84,17 @@ section, header, footer, main {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .section-title, .hero-title, .card-title, .instructor-name, .track-title {
   font-family: var(--font-title);
   font-weight: 700;
   line-height: 1.25;
   color: var(--color-text-light);
+  text-wrap: balance;
 }
 
-p {
+p, .section-desc, .hero-subtitle {
   color: var(--color-text-muted-light);
+  text-wrap: pretty;
 }
 
 strong {
