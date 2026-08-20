@@ -6,8 +6,10 @@ export default async function handler(req, res) {
   const {
     name,
     email,
+    phone,
     whatsapp,
     education,
+    occupation,
     education_area,
     utm_source,
     utm_medium,
@@ -36,23 +38,23 @@ export default async function handler(req, res) {
   };
 
   const fieldValues = [];
-  addField(fieldValues, '769', education);      // [PERPETUOWORKSHOP][WEBGIS] UTM Possui Graduação
-  addField(fieldValues, '770', education_area); // [PERPETUOWORKSHOP][WEBGIS] UTM Área de Formação
-  addField(fieldValues, '764', utm_source);     // [PERPETUOWORKSHOP][WEBGIS] UTM Source
-  addField(fieldValues, '765', utm_medium);     // [PERPETUOWORKSHOP][WEBGIS] UTM Medium
-  addField(fieldValues, '763', utm_campaign);   // [PERPETUOWORKSHOP][WEBGIS] UTM Campaign
-  addField(fieldValues, '766', utm_content);    // [PERPETUOWORKSHOP][WEBGIS] UTM Content
-  addField(fieldValues, '767', utm_term);       // [PERPETUOWORKSHOP][WEBGIS] UTM Term
+  addField(fieldValues, '866', education || occupation); // [WK][PÓS][ALPA] UTM Possui Graduação
+  addField(fieldValues, '867', education_area);          // [WK][PÓS][ALPA] UTM Área de Formação
+  addField(fieldValues, '869', utm_source);              // [WK][PÓS][ALPA] UTM Source
+  addField(fieldValues, '870', utm_medium);              // [WK][PÓS][ALPA] UTM Medium
+  addField(fieldValues, '868', utm_campaign);            // [WK][PÓS][ALPA] UTM Campaign
+  addField(fieldValues, '871', utm_content);             // [WK][PÓS][ALPA] UTM Content
+  addField(fieldValues, '864', utm_term);                // [WK][PÓS][ALPA] UTM Term
   
-  // [PERPETUOWORKSHOP][WEBGIS] UTM Data de Incriçao (ID 768)
+  // [WK][PÓS][ALPA] UTM Data de Inscrição (ID: 865)
   const currentDateTime = new Date().toISOString();
-  addField(fieldValues, '768', currentDateTime);
+  addField(fieldValues, '865', currentDateTime);
 
   const contactPayload = {
     contact: {
       email,
       firstName: name,
-      phone: whatsapp,
+      phone: phone || whatsapp,
       fieldValues
     }
   };
@@ -77,11 +79,11 @@ export default async function handler(req, res) {
     const contactData = await contactResponse.json();
     const contactId = contactData.contact.id;
 
-    // 2. Add the [PERPETUOWORKSHOP][WEBGIS] Lead tag (ID: 451)
+    // 2. Add the [WK][PÓS][ALPA] Lead tag (ID: 475)
     const tagPayload = {
       contactTag: {
         contact: contactId,
-        tag: '451'
+        tag: '475'
       }
     };
 
@@ -97,7 +99,6 @@ export default async function handler(req, res) {
     if (!tagResponse.ok) {
       const errorText = await tagResponse.text();
       console.error('ActiveCampaign Tag Error:', errorText);
-      // We still return success since the contact was created, but log the error.
     }
 
     return res.status(200).json({ success: true, message: 'Contact processed successfully' });

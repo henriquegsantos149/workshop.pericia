@@ -181,9 +181,9 @@ function initScrollReveal() {
   });
 }
 
-// Enrollment form simulation
+// Enrollment form handling
 function initEnrollmentForm() {
-  const forms = document.querySelectorAll('#enrollment-form, #hero-enrollment-form');
+  const forms = document.querySelectorAll('#enrollment-form, #hero-registration-form, .registration-form');
   if (forms.length === 0) return;
 
   const CHECKOUT_URL = "https://pay.voompcreators.com.br/14992/offer/Yj3SrT";
@@ -202,23 +202,49 @@ function initEnrollmentForm() {
 
       // Capture form data
       const formData = new FormData(form);
+      const name = formData.get('name') || '';
+      const email = formData.get('email') || '';
+      const phone = formData.get('phone') || formData.get('whatsapp') || '';
+      const education = formData.get('education') || formData.get('occupation') || '';
+      const education_area = formData.get('education_area') || '';
+
       const formPayload = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        whatsapp: formData.get('whatsapp'),
-        education: formData.get('education'),
-        education_area: formData.get('education_area') || ''
+        name,
+        email,
+        phone,
+        whatsapp: phone,
+        education,
+        occupation: education,
+        education_area
       };
 
-      // Capture all UTM parameters from the current URL
+      // Capture all UTM parameters from the current URL (both standard and prefixed)
       const urlParams = new URLSearchParams(window.location.search);
       const finalCheckoutUrl = new URL(CHECKOUT_URL);
       
       urlParams.forEach((value, key) => {
+        // Forward all URL params to the checkout URL
+        finalCheckoutUrl.searchParams.append(key, value);
+
+        const upperKey = key.toUpperCase();
         const lowerKey = key.toLowerCase();
+
+        // Exact standard UTM matches
         if (lowerKey.startsWith('utm_')) {
-          finalCheckoutUrl.searchParams.append(key, value);
           formPayload[lowerKey] = value;
+        }
+        
+        // Match prefixed UTMs (e.g. PAP_VD_UTM_SOURCE, WK_UTM_SOURCE, etc.)
+        if (upperKey.includes('UTM_SOURCE') && !formPayload.utm_source) {
+          formPayload.utm_source = value;
+        } else if (upperKey.includes('UTM_MEDIUM') && !formPayload.utm_medium) {
+          formPayload.utm_medium = value;
+        } else if (upperKey.includes('UTM_CAMPAIGN') && !formPayload.utm_campaign) {
+          formPayload.utm_campaign = value;
+        } else if (upperKey.includes('UTM_CONTENT') && !formPayload.utm_content) {
+          formPayload.utm_content = value;
+        } else if (upperKey.includes('UTM_TERM') && !formPayload.utm_term) {
+          formPayload.utm_term = value;
         }
       });
 
@@ -239,8 +265,7 @@ function initEnrollmentForm() {
         console.error('Error calling subscribe API:', error);
       })
       .finally(() => {
-        // Redireciona para o checkout independentemente do sucesso da API,
-        // para não travar a venda em caso de falha de conexão.
+        // Redireciona para o checkout com os parâmetros UTM
         submitBtn.innerHTML = '<i data-lucide="loader" class="animate-spin"></i> Redirecionando...';
         if (typeof lucide !== 'undefined') lucide.createIcons();
         window.location.href = finalCheckoutUrl.toString();
