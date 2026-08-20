@@ -1094,6 +1094,54 @@ a {
   margin-bottom: 0;
 }
 
+/* FAQ WhatsApp Support CTA */
+.faq-support-cta {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-support-text {
+  font-size: 1.05rem;
+  color: var(--color-text-muted-light);
+  margin-bottom: 0;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: #080D08;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20ba5a;
+  color: #080D08;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp i, .btn-whatsapp svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bg-light-layer .faq-support-text {
+  color: #4B5E4B;
+}
+
 .module-highlights {
   display: flex;
   flex-wrap: wrap;
