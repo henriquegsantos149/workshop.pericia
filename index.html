@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MTZ9NFFN');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1373287802810243');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Domine o Geoprocessamento aplicado à Perícia Ambiental. Aprenda a utilizar o QGIS, mapear danos ambientais e elaborar laudos periciais profissionais com a Ambiental Pro.">
+  <meta name="keywords" content="Geoprocessamento, Perícia Ambiental, QGIS, Cartografia, Geotecnologias, Perito Ambiental, Laudo Ambiental, Ambiental Pro">
+  <meta name="author" content="Ambiental Pro">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://curso.ambientalpro.com.br/pericia-ambiental">
+  <meta property="og:title" content="Workshop de Geoprocessamento e Perícia Ambiental — Ambiental Pro">
+  <meta property="og:description" content="Aprenda a aplicar o Geoprocessamento na Perícia Ambiental na prática, do absoluto zero aos laudos periciais profissionais.">
+  <meta property="og:image" content="/hero-bg.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Workshop de Geoprocessamento e Perícia Ambiental — Ambiental Pro">
+  <meta property="twitter:description" content="Aprenda a aplicar o Geoprocessamento na Perícia Ambiental na prática, do absoluto zero aos laudos periciais profissionais.">
+  <meta property="twitter:image" content="/hero-bg.png">
+
+  <title>Workshop de Geoprocessamento e Perícia Ambiental | Ambiental Pro</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTZ9NFFN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Meta Pixel (noscript) -->
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1373287802810243&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel (noscript) -->
+
+  <!-- Floating Glow Effect Backgrounds -->
+  <div class="glow-bg-radial primary-glow"></div>
+  <div class="glow-bg-radial accent-glow"></div>
+
+  <!-- Header Section -->
+  <header id="main-header" class="site-header">
+    <div class="container header-container">
+      <div class="logo-wrapper">
+        <img src="/logo.png?v=5" alt="Logo Ambiental Pro" class="site-logo">
+      </div>
+      <nav class="nav-menu" id="site-nav">
+        <ul>
+          <li><a href="#metodo" class="nav-link">O Método</a></li>
+          <li><a href="#cronograma" class="nav-link">Conteúdo</a></li>
+          <li><a href="#mentor" class="nav-link">O Instrutor</a></li>
+          <li><a href="#certificado" class="nav-link">Certificado</a></li>
+          <li><a href="#investimento" class="nav-link">Investimento</a></li>
+          <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <button class="btn btn-secondary-outline btn-sm open-modal-btn" id="header-cta-btn">Garantir Vaga</button>
+      </div>
+      <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Abrir Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content reveal">
+
+          <h1 class="hero-title">
+            <span class="title-nowrap">Domine o <span class="gradient-text">Geoprocessamento</span></span><br>aplicado à <span class="gradient-text">Perícia Ambiental</span> nesse workshop prático.
+          </h1>
+          <p class="hero-subtitle">
+            Aprenda a utilizar geotecnologias e o QGIS para elaboração de laudos periciais, análise de danos ambientais e mapas profissionais. Método 100% prático e focado no mercado.
+          </p>
+          <div class="hero-actions">
+            <a href="#metodo" class="btn btn-secondary-outline btn-lg">
+              Conhecer o método <i data-lucide="chevron-down"></i>
+            </a>
+          </div>
+          <div class="hero-social-proof">
+            <div class="avatars-group">
+              <span class="avatar-placeholder">80k+</span>
+            </div>
+            <p class="social-proof-text">Junte-se a mais de <strong>80.000 profissionais</strong> treinados pela Ambiental Pro.</p>
+          </div>
+        </div>
+        
+        <div class="hero-visual reveal delay-1">
+          <div class="registration-card glassmorphism">
+            <div class="card-glow-top"></div>
+            <div class="text-center" style="margin-bottom: 20px;">
+              <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 8px;">Garanta sua Vaga</h3>
+              <p class="card-subtitle" style="font-size: 0.85rem; margin-bottom: 0;">Preencha seus dados para receber o acesso imediato.</p>
+            </div>
+            <form id="hero-registration-form" class="registration-form">
+              <div class="form-group">
+                <input type="text" id="hero-user-name" name="name" required placeholder="Seu nome completo">
+              </div>
+              <div class="form-group">
+                <input type="email" id="hero-user-email" name="email" required placeholder="Seu melhor e-mail">
+              </div>
+              <div class="form-group">
+                <input type="tel" id="hero-user-phone" name="phone" required placeholder="Seu WhatsApp com DDD">
+              </div>
+              
+              <div class="form-group">
+                <select id="hero-user-occupation" name="occupation" required>
+                  <option value="" disabled selected>Sua ocupação atual</option>
+                  <option value="estudante">Estudante / Graduando</option>
+                  <option value="profissional_liberto">Profissional Autônomo / Consultor</option>
+                  <option value="empresa_privada">Analista / Especialista em Empresa</option>
+                  <option value="servidor_publico">Servidor Público / Órgão Ambiental</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+
+              <div class="form-group hidden" id="hero-education-area-group">
+                <input type="text" id="hero-user-education-area" name="education_area" placeholder="Área de Formação (Ex: Engenharia Ambiental, Geografia, etc.)">
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow" id="hero-submit-enroll-btn">
+                Garantir Vaga Agora <i data-lucide="check"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain Points / Comparison Section -->
+    <section id="metodo" class="section-padding comparison-section bg-light-layer">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">O Mercado de Trabalho exige <span class="gradient-text">Soluções Reais</span></h2>
+          <p class="section-desc">
+            A faculdade enche você de teoria, mas na hora de resolver um problema real de engenharia, licenciamento ou perícia ambiental, você congela? Compare as duas abordagens:
+          </p>
+        </div>
+
+        <div class="comparison-grid reveal delay-1">
+          <!-- Traditional way -->
+          <div class="comparison-card traditional">
+            <h3>O Ensino Tradicional</h3>
+            <p class="card-sub">Manuais densos e decoreba acadêmica</p>
+            <ul class="comparison-list">
+              <li>
+                <i data-lucide="minus" class="list-icon"></i>
+                Anos estudando conceitos históricos sem aplicação prática imediata.
+              </li>
+              <li>
+                <i data-lucide="minus" class="list-icon"></i>
+                Tutoriais desatualizados e travamentos constantes em análises ambientais simples.
+              </li>
+              <li>
+                <i data-lucide="minus" class="list-icon"></i>
+                Frustração ao tentar cruzar dados espaciais com laudos periciais.
+              </li>
+              <li>
+                <i data-lucide="minus" class="list-icon"></i>
+                Salários estagnados por não entregar o que as empresas e a justiça realmente buscam.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ambiental Pro way -->
+          <div class="comparison-card premium-card active-border">
+            <h3>Método Ambiental Pro</h3>
+            <p class="card-sub text-cyan">Prático, rápido e focado em resultados</p>
+            <ul class="comparison-list">
+              <li>
+                <i data-lucide="check" class="list-icon text-cyan"></i>
+                Foco 100% na resolução de problemas reais de perícia e análise ambiental.
+              </li>
+              <li>
+                <i data-lucide="check" class="list-icon text-cyan"></i>
+                Pegar dados brutos, aplicar a geotecnologia correta no QGIS e gerar laudos conclusivos.
+              </li>
+              <li>
+                <i data-lucide="check" class="list-icon text-cyan"></i>
+                Uso de metodologias modernas como Vibecoding para análises rápidas.
+              </li>
+              <li>
+                <i data-lucide="check" class="list-icon text-cyan"></i>
+                Destaque no mercado com laudos periciais prontos para seu portfólio profissional.
+              </li>
+            </ul>
+            <div class="glow-accent-border"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshop Topics Section -->
+    <section id="cronograma" class="section-padding curriculum-section bg-dark-layer">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">O que será <span class="gradient-text">Abordado no Workshop</span></h2>
+          <p class="section-desc">
+            Conteúdo 100% prático e focado no que o mercado realmente exige:
+          </p>
+        </div>
+
+        <div class="topics-grid reveal delay-1">
+          <div class="topic-item">
+            <span class="topic-title">Primeiros passos práticos para Licenciamento no QGIS</span>
+          </div>
+
+          <div class="topic-item">
+            <span class="topic-title">Sensoriamento Remoto no monitoramento ambiental</span>
+          </div>
+
+          <div class="topic-item">
+            <span class="topic-title">Layout e elementos cartográficos obrigatórios em mapas técnicos</span>
+          </div>
+
+          <div class="topic-item bonus-topic">
+            <span class="topic-title"><strong>Bônus:</strong> Integração IA com QGIS via MCP (Como controlar seu QGIS apenas com comandos de texto)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructor Section (CLARA) -->
+    <section id="mentor" class="section-padding instructor-section bg-light-layer">
+      <div class="container grid-2">
+        <div class="instructor-image-wrapper reveal">
+          <div class="photo-glow-border">
+            <img src="/foto-henrique.jpg" alt="Henrique — Diretor Pedagógico da Ambiental Pro" class="instructor-photo">
+            <div class="floating-accent-box">
+              <span class="floating-number">80k+</span>
+              <span class="floating-label">Alunos Treinados</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="instructor-text reveal delay-1">
+          <h2 class="instructor-title">APRENDA DIRETAMENTE COM O DIRETOR PEDAGÓGICO DA AMBIENTAL PRO</h2>
+          
+          <div class="instructor-desc">
+            <p>
+              Henrique percebeu que o mercado está cheio de profissionais que passam anos na faculdade, mas congelam diante de um projeto ou laudo pericial real. Viu de perto a frustração de quem tenta decorar manuais, mas continua com salários estagnados por não saber resolver os problemas práticos que a área ambiental realmente enfrenta.
+            </p>
+            <p>
+              Com base em sua vivência na Universidade de Tecnologia de Sydney (Austrália), adaptou para o Brasil um método focado 100% na resolução de problemas reais. Nada de decoreba acadêmica inútil: o foco é pegar o dado bruto, aplicar a geotecnologia correta no QGIS e entregar um laudo pericial que vale dinheiro no mercado.
+            </p>
+          </div>
+
+          <div class="instructor-bullets">
+            <div class="bullet-card glassmorphism">
+              <div class="bullet-icon-wrapper">
+                <i data-lucide="award"></i>
+              </div>
+              <p>Sócio fundador da Ambiental Pro.</p>
+            </div>
+            
+            <div class="bullet-card glassmorphism">
+              <div class="bullet-icon-wrapper">
+                <i data-lucide="users"></i>
+              </div>
+              <p>Treinou mais de 80.000 pessoas nos últimos 7 anos.</p>
+            </div>
+            
+            <div class="bullet-card glassmorphism">
+              <div class="bullet-icon-wrapper">
+                <i data-lucide="star"></i>
+              </div>
+              <p>Estruturou formações chanceladas com nota máxima (5) no MEC.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificate Section (ESCURA) -->
+    <section id="certificado" class="section-padding certificate-section bg-dark-layer">
+      <div class="container grid-2">
+        <div class="certificate-text reveal">
+          <h2 class="section-title">Destaque-se no mercado com um <span class="gradient-text">Certificado Oficial</span></h2>
+          <p class="section-desc-left">
+            Ao concluir o workshop prático, você receberá um certificado de conclusão livre oficial emitido pela <strong>Ambiental Pro</strong>, pronto para valorizar seu currículo.
+          </p>
+          <div class="certificate-benefits">
+            <div class="benefit-card-detailed">
+              <div class="benefit-icon-wrapper">
+                <i data-lucide="clock"></i>
+              </div>
+              <div class="benefit-info">
+                <h3>Carga Horária de 4 Horas</h3>
+                <p>Perfeito para apresentar como atividades complementares na faculdade e comprovar sua dedicação extracurricular.</p>
+              </div>
+            </div>
+            
+            <div class="benefit-card-detailed">
+              <div class="benefit-icon-wrapper">
+                <i data-lucide="shield-check"></i>
+              </div>
+              <div class="benefit-info">
+                <h3>Validade em Todo o Território Nacional</h3>
+                <p>Documento oficial emitido pela Ambiental Pro com validade jurídica e amplamente aceito no mercado de trabalho.</p>
+              </div>
+            </div>
+
+            <div class="benefit-card-detailed">
+              <div class="benefit-icon-wrapper">
+                <i data-lucide="award"></i>
+              </div>
+              <div class="benefit-info">
+                <h3>Comprovação Prática em Perícia Ambiental</h3>
+                <p>Garante que você sabe utilizar geoprocessamento e o QGIS na prática para elaboração de mapas e análises periciais.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="certificate-visual reveal delay-1">
+          <div class="certificate-mockup-wrapper lightbox-trigger">
+            <img src="/certificado.png" alt="Certificado de Conclusão Workshop Geoprocessamento e Perícia Ambiental" class="certificate-img">
+            <div class="certificate-shadow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section (CLARA) -->
+    <section id="investimento" class="section-padding pricing-section bg-light-layer">
+      <div class="container max-w-lg">
+        <div class="section-header text-center reveal">
+          <h2 class="section-title"><span class="title-nowrap">Garanta sua <span class="gradient-text">Vaga no Workshop</span></span></h2>
+          <p class="section-desc">Inscreva-se hoje com desconto exclusivo e participe do Workshop prático de Geoprocessamento e Perícia Ambiental.</p>
+        </div>
+
+        <div class="pricing-wrapper reveal delay-1">
+          <div class="pricing-card-premium glassmorphism">
+            <div class="card-glow-top"></div>
+            
+            <div class="pricing-header">
+              <h3>Workshop Geoprocessamento e Perícia Ambiental</h3>
+              <p>Do QGIS ao Laudo Pericial Profissional</p>
+            </div>
+
+            <div class="price-box">
+              <span class="old-price">De R$ 97,00</span>
+              <div class="current-price">
+                <span class="currency">R$ </span>39,00
+              </div>
+              <span class="price-detail">ou em até 12x de R$ 3,90</span>
+            </div>
+
+            <div class="pricing-features">
+              <div class="feature-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Materiais e Modelos Práticos</strong> para laudos periciais</span>
+              </div>
+              <div class="feature-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Certificado de Conclusão</strong> oficial de 4 horas incluso</span>
+              </div>
+              <div class="feature-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Evento Exclusivo e Sem Gravação</strong> (participe ao vivo)</span>
+              </div>
+              <div class="feature-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Suporte Direto</strong> com a equipe da Ambiental Pro</span>
+              </div>
+            </div>
+
+            <div class="pricing-action">
+              <button class="btn btn-primary btn-block btn-lg btn-glow open-modal-btn">
+                Garantir Minha Vaga Agora <i data-lucide="arrow-right"></i>
+              </button>
+              <span class="pricing-guarantee">
+                <i data-lucide="shield-check"></i> Garantia incondicional de 7 dias
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section (ESCURA) -->
+    <section id="faq" class="section-padding faq-section bg-dark-layer">
+      <div class="container max-w-lg">
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">Perguntas <span class="gradient-text">Frequentes</span></h2>
+          <p class="section-desc">Dúvidas comuns sobre o Workshop de Geoprocessamento e Perícia Ambiental</p>
+        </div>
+
+        <div class="faq-accordion-list reveal delay-1">
+          
+          <div class="faq-item">
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-1">
+              <span>Preciso ter experiência prévia em Geoprocessamento ou Perícia?</span>
+              <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+            </button>
+            <div class="faq-content" id="faq-content-1" aria-hidden="true">
+              <div class="faq-body">
+                <p>Não! O workshop foi planejado do absoluto zero. Mostramos o uso do QGIS de forma totalmente prática e guiada, para que você foque no raciocínio técnico e na resolução de problemas ambientais reais.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-2">
+              <span>O curso oferece certificado?</span>
+              <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+            </button>
+            <div class="faq-content" id="faq-content-2" aria-hidden="true">
+              <div class="faq-body">
+                <p>Sim! Ao participar do workshop e concluir as etapas práticas, você poderá emitir seu certificado de conclusão oficial de 4 horas assinado pela Ambiental Pro.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-3">
+              <span>O workshop terá gravação disponível?</span>
+              <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+            </button>
+            <div class="faq-content" id="faq-content-3" aria-hidden="true">
+              <div class="faq-body">
+                <p>Não! O workshop é um evento 100% prático, intensivo e sem gravação. A experiência foi desenhada para que você participe em tempo real, tire dúvidas e coloque a mão na massa junto conosco.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-4">
+              <span>Quais ferramentas vamos utilizar no workshop?</span>
+              <span class="faq-icon"><i data-lucide="chevron-down"></i></span>
+            </button>
+            <div class="faq-content" id="faq-content-4" aria-hidden="true">
+              <div class="faq-body">
+                <p>Usaremos o QGIS para análise de dados espaciais e geoprocessamento, dados ambientais oficiais (como IBAMA, CAR, ICMBio) e modelos práticos para estruturação de laudos periciais.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="/logo.png?v=5" alt="Logo Ambiental Pro" class="footer-logo">
+        <p>Capacitando profissionais com o método prático que o mercado realmente contrata.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ambiental Pro. Todos os direitos reservados. CNPJ: 36.701.725/0001-54</p>
+        <div class="footer-links">
+          <a href="#">Políticas de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Enrollment Form Modal -->
+  <div id="enrollment-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-container">
+      <div class="modal-card glassmorphism">
+        <div class="card-glow-top"></div>
+        <button class="modal-close" aria-label="Fechar Modal">
+          <i data-lucide="x"></i>
+        </button>
+        
+        <div class="modal-header text-center">
+          <h2 class="card-title">Inicie sua Jornada em Perícia Ambiental Hoje</h2>
+          <p class="card-subtitle">Inscreva-se e garanta seu acesso ao workshop prático com certificação inclusa.</p>
+        </div>
+
+        <form id="enrollment-form" class="registration-form">
+          <div class="form-group">
+            <input type="text" id="user-name" name="name" placeholder="Nome Completo" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" id="user-email" name="email" placeholder="E-mail Principal" required>
+          </div>
+
+          <div class="form-group">
+            <input type="tel" id="user-whatsapp" name="whatsapp" placeholder="WhatsApp (com DDD)" pattern="\d{11}" title="Digite o DDD + número com 9 dígitos (ex: 11999999999)" maxlength="11" required>
+          </div>
+
+          <div class="form-group">
+            <select id="user-education" name="education" required>
+              <option value="" disabled selected>Tem formação superior?</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group hidden" id="education-area-group">
+            <input type="text" id="user-education-area" name="education_area" placeholder="Área de Formação (Ex: Engenharia Ambiental, Geografia, etc.)">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow" id="submit-enroll-btn">
+            Quero Garantir Minha Inscrição <i data-lucide="check"></i>
+          </button>
+        </form>
+
+        <p class="security-text" style="margin-top: 16px; text-align: center; font-size: 0.8rem; opacity: 0.7;">
+          <i data-lucide="shield-check"></i> Seus dados estão protegidos sob a LGPD.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="image-lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Ampliada">
+  </div>
+
+  <!-- Script File -->
+  <script type="module" src="/script.js"></script>
+</body>
+</html>
