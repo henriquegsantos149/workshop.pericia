@@ -534,7 +534,13 @@ a {
 }
 
 .title-nowrap {
-  white-space: nowrap;
+  white-space: normal;
+}
+
+@media (min-width: 768px) {
+  .title-nowrap {
+    white-space: nowrap;
+  }
 }
 
 .hero-subtitle {
