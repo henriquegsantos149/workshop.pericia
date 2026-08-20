@@ -145,18 +145,15 @@
               </div>
               
               <div class="form-group">
-                <select id="hero-user-occupation" name="occupation" required>
-                  <option value="" disabled selected>Sua ocupação atual</option>
-                  <option value="estudante">Estudante / Graduando</option>
-                  <option value="profissional_liberto">Profissional Autônomo / Consultor</option>
-                  <option value="empresa_privada">Analista / Especialista em Empresa</option>
-                  <option value="servidor_publico">Servidor Público / Órgão Ambiental</option>
-                  <option value="outro">Outro</option>
+                <select id="hero-user-education" name="education" required>
+                  <option value="" disabled selected>Possui formação?</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não</option>
                 </select>
               </div>
 
               <div class="form-group hidden" id="hero-education-area-group">
-                <input type="text" id="hero-user-education-area" name="education_area" placeholder="Área de Formação (Ex: Engenharia Ambiental, Geografia, etc.)">
+                <input type="text" id="hero-user-education-area" name="education_area" placeholder="Qual sua formação? (Ex: Eng. Ambiental, Biologia...)">
               </div>
 
               <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow" id="hero-submit-enroll-btn">
@@ -768,14 +765,14 @@
 
           <div class="form-group">
             <select id="user-education" name="education" required>
-              <option value="" disabled selected>Tem formação superior?</option>
+              <option value="" disabled selected>Possui formação?</option>
               <option value="sim">Sim</option>
               <option value="nao">Não</option>
             </select>
           </div>
 
           <div class="form-group hidden" id="education-area-group">
-            <input type="text" id="user-education-area" name="education_area" placeholder="Área de Formação (Ex: Engenharia Ambiental, Geografia, etc.)">
+            <input type="text" id="user-education-area" name="education_area" placeholder="Qual sua formação? (Ex: Eng. Ambiental, Biologia...)">
           </div>
 
           <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow" id="submit-enroll-btn">
