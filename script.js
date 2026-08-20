@@ -83,8 +83,10 @@ function initCurriculumAccordion() {
     toggle.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
 
-      // Collapse all other curriculum items
-      items.forEach(otherItem => {
+      // Collapse other items within the same track list
+      const parentTrack = item.closest('.track-items-list') || item.parentElement;
+      const siblingItems = parentTrack.querySelectorAll('.accordion-item');
+      siblingItems.forEach(otherItem => {
         if (otherItem !== item) {
           otherItem.classList.remove('active');
           const otherToggle = otherItem.querySelector('.accordion-toggle');

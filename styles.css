@@ -808,33 +808,60 @@ a {
 .track-items-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
-.track-topic-item {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 16px;
+.track-items-list .accordion-item {
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.02);
-  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+  transition: all var(--transition-fast);
+  overflow: hidden;
 }
 
-.track-topic-item:hover {
-  transform: translateY(-2px);
-  border-color: rgba(184, 204, 59, 0.35);
+.track-items-list .accordion-item:hover {
+  border-color: rgba(184, 204, 59, 0.3);
   background: rgba(255, 255, 255, 0.04);
 }
 
-.track-topic-item.bonus-item {
-  border-color: rgba(184, 204, 59, 0.35);
-  background: rgba(184, 204, 59, 0.06);
+.track-items-list .accordion-item.active {
+  border-color: rgba(184, 204, 59, 0.4);
+  background: rgba(18, 26, 18, 0.55);
 }
 
-.topic-num {
-  font-size: 0.8rem;
+.track-items-list .accordion-item.bonus-item {
+  border-color: rgba(184, 204, 59, 0.35);
+  background: rgba(184, 204, 59, 0.05);
+}
+
+.track-items-list .accordion-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  color: #fff;
+  transition: all var(--transition-fast);
+}
+
+.track-items-list .accordion-toggle:focus {
+  outline: none;
+}
+
+.track-items-list .topic-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.track-items-list .topic-num {
+  font-size: 0.78rem;
   font-weight: 800;
   color: var(--color-primary);
   background: rgba(184, 204, 59, 0.12);
@@ -842,10 +869,9 @@ a {
   border-radius: 6px;
   flex-shrink: 0;
   line-height: 1;
-  margin-top: 3px;
 }
 
-.topic-num.bonus-num {
+.track-items-list .topic-num.bonus-num {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   color: var(--color-bg-deep);
   font-size: 0.68rem;
@@ -853,18 +879,47 @@ a {
   padding: 4px 6px;
 }
 
-.topic-content h4 {
-  font-size: 0.98rem;
-  font-weight: 700;
+.track-items-list .topic-title-text {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 600;
   color: #fff;
-  margin-bottom: 6px;
   line-height: 1.35;
+  transition: color var(--transition-fast);
 }
 
-.topic-content p {
-  font-size: 0.85rem;
+.track-items-list .accordion-item:hover .topic-title-text,
+.track-items-list .accordion-item.active .topic-title-text {
+  color: var(--color-primary);
+}
+
+.track-items-list .accordion-icon {
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.track-items-list .accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.track-items-list .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+}
+
+.track-items-list .accordion-body {
+  padding: 4px 20px 18px 50px;
+  font-size: 0.875rem;
   color: var(--color-text-muted-light);
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.track-items-list .accordion-body p {
   margin-bottom: 0;
 }
 
