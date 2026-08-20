@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initPhoneValidation();
   initEnrollmentModal();
+  initMobileStickyBar();
 });
 
 // Sticky Header behavior
@@ -435,4 +436,22 @@ function initEnrollmentModal() {
       closeModal();
     }
   });
+}
+
+// Mobile Sticky CTA Bar scroll behavior
+function initMobileStickyBar() {
+  const stickyBar = document.getElementById('mobile-sticky-bar');
+  if (!stickyBar) return;
+
+  const checkScroll = () => {
+    // Show sticky bar once user scrolls past 350px
+    if (window.scrollY > 350) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
 }

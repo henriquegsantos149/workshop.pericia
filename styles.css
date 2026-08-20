@@ -2593,3 +2593,462 @@ a {
   margin-bottom: 24px;
   color: var(--color-text-muted-light);
 }
+
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Responsiveness Overhaul (UX First)
+   ========================================================================== */
+
+/* Mobile Sticky Bottom CTA Bar */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(10, 16, 10, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(184, 204, 59, 0.25);
+  padding: 10px 16px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transform: translateY(120%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-sticky-bar.visible {
+  transform: translateY(0);
+}
+
+.mobile-sticky-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-sticky-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobile-sticky-price {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.mobile-price-cur {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-right: 2px;
+}
+
+.mobile-price-val {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
+  font-family: var(--font-title);
+}
+
+.mobile-price-cents {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mobile-sticky-btn {
+  padding: 10px 18px !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  border-radius: 25px !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 769px) {
+  .mobile-sticky-bar {
+    display: none !important;
+  }
+}
+
+/* Tablet & Mobile Breakpoint (<991px) */
+@media (max-width: 991px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .site-header {
+    padding: 10px 0;
+  }
+
+  .site-logo {
+    height: 48px;
+  }
+
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-section {
+    padding-top: 90px;
+    padding-bottom: 50px;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .instructors-container {
+    gap: 50px;
+  }
+
+  .instructor-profile-row {
+    gap: 36px;
+  }
+}
+
+/* Mobile Breakpoint (<768px) */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 60px; /* Space for mobile sticky bar */
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .section-padding {
+    padding: 48px 0;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 8px 0;
+  }
+
+  .site-logo {
+    height: 42px;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding-top: 78px;
+    padding-bottom: 36px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 6px 12px;
+    margin-bottom: 14px;
+    display: inline-flex;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+    line-height: 1.22;
+    margin-bottom: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .hero-meta-badges {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .hero-meta-badge {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .hero-registration-card {
+    padding: 22px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .hero-card-header .card-title {
+    font-size: 1.25rem;
+  }
+
+  .hero-card-header .card-subtitle {
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+  }
+
+  .registration-form .form-group {
+    margin-bottom: 12px;
+  }
+
+  .registration-form input,
+  .registration-form select {
+    height: 48px;
+    font-size: 0.92rem;
+    padding: 0 14px;
+    border-radius: 8px;
+  }
+
+  .registration-form button[type="submit"] {
+    height: 50px;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-top: 6px;
+  }
+
+  /* Comparison Cards */
+  .comparison-card {
+    padding: 22px 16px;
+  }
+
+  .comparison-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .comparison-list li {
+    font-size: 0.86rem;
+    gap: 10px;
+    line-height: 1.45;
+  }
+
+  /* Workshop Tracks Accordions */
+  .workshop-tracks-grid {
+    gap: 24px;
+  }
+
+  .track-card {
+    padding: 20px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .track-title {
+    font-size: 1.15rem;
+  }
+
+  .track-items-list .accordion-toggle {
+    padding: 13px 12px;
+    gap: 8px;
+  }
+
+  .track-items-list .topic-num {
+    font-size: 0.72rem;
+    padding: 3px 6px;
+  }
+
+  .track-items-list .topic-title-text {
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .track-items-list .accordion-body {
+    padding: 4px 12px 14px 12px; /* Reset left indentation on mobile for max readability */
+    font-size: 0.83rem;
+    line-height: 1.55;
+  }
+
+  /* Instructor Profile Rows */
+  .instructor-profile-row {
+    text-align: center;
+    gap: 24px;
+  }
+
+  .photo-glow-border {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .floating-accent-box {
+    bottom: -10px;
+    right: 0;
+    padding: 8px 14px;
+  }
+
+  .floating-number {
+    font-size: 1.4rem;
+  }
+
+  .floating-label {
+    font-size: 0.68rem;
+  }
+
+  .instructor-title {
+    font-size: 1.3rem;
+    border-left: none;
+    border-top: 3px solid var(--color-primary);
+    padding-left: 0;
+    padding-top: 10px;
+  }
+
+  .instructor-name {
+    font-size: 1.55rem;
+    margin-bottom: 12px;
+  }
+
+  .instructor-role-badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+
+  .instructor-desc p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .instructor-bullets {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .bullet-card {
+    padding: 12px 14px;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .bullet-icon-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+
+  .bullet-card p {
+    font-size: 0.84rem;
+  }
+
+  /* Certificate */
+  .certificate-text {
+    text-align: center;
+  }
+
+  .certificate-benefits {
+    text-align: left;
+  }
+
+  .benefit-card-detailed {
+    padding: 14px 14px;
+    gap: 12px;
+  }
+
+  .benefit-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .benefit-card-detailed h3 {
+    font-size: 0.95rem;
+  }
+
+  .benefit-card-detailed p {
+    font-size: 0.82rem;
+  }
+
+  .certificate-mockup-wrapper {
+    max-width: 320px;
+    margin: 20px auto 0 auto;
+  }
+
+  /* Pricing */
+  .pricing-card-premium {
+    padding: 24px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .price-main {
+    font-size: 2.4rem;
+  }
+
+  .pricing-features .feature-item {
+    font-size: 0.88rem;
+    gap: 10px;
+  }
+
+  /* Modal */
+  .modal-container {
+    width: 94%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-card {
+    padding: 24px 16px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  /* Footer */
+  .footer-container {
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    height: 38px;
+    margin: 0 auto 10px auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Small Screens (<380px) */
+@media (max-width: 379px) {
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .site-logo {
+    height: 36px;
+  }
+
+  .hero-registration-card {
+    padding: 18px 12px;
+  }
+}
