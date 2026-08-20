@@ -38,13 +38,19 @@ export default async function handler(req, res) {
   };
 
   const fieldValues = [];
+  const source = utm_source || req.body.WKPSALPA_UTM_SOURCE || req.body.wkpsalpa_utm_source;
+  const medium = utm_medium || req.body.WKPSALPA_UTM_MEDIUM || req.body.wkpsalpa_utm_medium;
+  const campaign = utm_campaign || req.body.WKPSALPA_UTM_CAMPAIGN || req.body.wkpsalpa_utm_campaign;
+  const content = utm_content || req.body.WKPSALPA_UTM_CONTENT || req.body.wkpsalpa_utm_content;
+  const term = utm_term || req.body.WKPSALPA_UTM_TERM || req.body.wkpsalpa_utm_term;
+
   addField(fieldValues, '866', education || occupation); // [WK][PÓS][ALPA] UTM Possui Graduação
   addField(fieldValues, '867', education_area);          // [WK][PÓS][ALPA] UTM Área de Formação
-  addField(fieldValues, '869', utm_source);              // [WK][PÓS][ALPA] UTM Source
-  addField(fieldValues, '870', utm_medium);              // [WK][PÓS][ALPA] UTM Medium
-  addField(fieldValues, '868', utm_campaign);            // [WK][PÓS][ALPA] UTM Campaign
-  addField(fieldValues, '871', utm_content);             // [WK][PÓS][ALPA] UTM Content
-  addField(fieldValues, '864', utm_term);                // [WK][PÓS][ALPA] UTM Term
+  addField(fieldValues, '869', source);                  // [WK][PÓS][ALPA] UTM Source
+  addField(fieldValues, '870', medium);                  // [WK][PÓS][ALPA] UTM Medium
+  addField(fieldValues, '868', campaign);                // [WK][PÓS][ALPA] UTM Campaign
+  addField(fieldValues, '871', content);                 // [WK][PÓS][ALPA] UTM Content
+  addField(fieldValues, '864', term);                    // [WK][PÓS][ALPA] UTM Term
   
   // [WK][PÓS][ALPA] UTM Data de Inscrição (ID: 865)
   const currentDateTime = new Date().toISOString();
