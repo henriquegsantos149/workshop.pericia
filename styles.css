@@ -488,7 +488,7 @@ a {
   padding-top: 100px;
   padding-bottom: 40px;
   position: relative;
-  background-image: linear-gradient(to bottom, rgba(8, 13, 8, 0.94) 0%, rgba(8, 13, 8, 0.985) 100%), url('/hero-bg.png?v=2');
+  background-image: linear-gradient(to bottom, rgba(8, 13, 8, 0.94) 0%, rgba(8, 13, 8, 0.985) 100%), url('/hero-bg.webp?v=2');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
