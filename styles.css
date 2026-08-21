@@ -1819,6 +1819,16 @@ a {
   color: #fff;
 }
 
+.lgpd-group input[type="checkbox"] {
+  width: auto !important;
+  appearance: auto;
+  -webkit-appearance: checkbox;
+  margin: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
 .hidden {
   display: none !important;
 }

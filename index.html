@@ -21,6 +21,7 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1373287802810243');
   fbq('track', 'PageView');
+  fbq('track', 'ViewContent');
   </script>
   <!-- End Meta Pixel Code -->
 
@@ -44,6 +45,9 @@
   <meta property="twitter:image" content="/hero-bg.webp">
 
   <title>Workshop de Geoprocessamento e Perícia Ambiental | Ambiental Pro</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://curso.ambientalpro.com.br/pericia-ambiental" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/webp" href="/favicon.webp">
@@ -157,6 +161,13 @@
 
               <div class="form-group hidden" id="hero-education-area-group">
                 <input type="text" id="hero-user-education-area" name="education_area" placeholder="Área de formação (Ex: Eng. Ambiental, Biologia...)">
+              </div>
+
+              <div class="form-group lgpd-group">
+                <label class="lgpd-label" style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; text-align: left; opacity: 0.9; cursor: pointer;">
+                  <input type="checkbox" id="hero-lgpd" name="lgpd" required checked style="margin-top: 2px;">
+                  <span class="lgpd-text">Concordo em receber comunicações e aceito a <a href="https://ambientalpro.com.br/politica-de-privacidade/" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">Política de Privacidade</a>.</span>
+                </label>
               </div>
 
               <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow" id="hero-submit-enroll-btn">
@@ -882,6 +893,13 @@
 
           <div class="form-group hidden" id="education-area-group">
             <input type="text" id="user-education-area" name="education_area" placeholder="Área de formação (Ex: Eng. Ambiental, Biologia...)">
+          </div>
+
+          <div class="form-group lgpd-group">
+            <label class="lgpd-label" style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; text-align: left; opacity: 0.9; cursor: pointer;">
+              <input type="checkbox" id="modal-lgpd" name="lgpd" required checked style="margin-top: 2px;">
+              <span class="lgpd-text">Concordo em receber comunicações e aceito a <a href="https://ambientalpro.com.br/politica-de-privacidade/" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">Política de Privacidade</a>.</span>
+            </label>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow" id="submit-enroll-btn">

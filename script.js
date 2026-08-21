@@ -245,6 +245,23 @@ function initEnrollmentForm() {
       const education = formData.get('education') || formData.get('occupation') || '';
       const education_area = formData.get('education_area') || '';
 
+      const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      };
+
+      const eventId = 'lead_' + new Date().getTime() + '_' + Math.random().toString(36).substring(2, 9);
+
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'Workshop Perícia Ambiental'
+        }, {
+          eventID: eventId
+        });
+      }
+
       const formPayload = {
         name,
         email,
@@ -252,7 +269,10 @@ function initEnrollmentForm() {
         whatsapp: cleanPhone,
         education,
         occupation: education,
-        education_area
+        education_area,
+        eventId,
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc')
       };
 
       // Capture all UTM parameters from the current URL (both standard and prefixed)
