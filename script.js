@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPhoneValidation();
   initEnrollmentModal();
   initMobileStickyBar();
+  initCookieBanner();
 });
 
 // Sticky Header behavior
@@ -544,4 +545,22 @@ function initMobileStickyBar() {
 
   window.addEventListener('scroll', checkScroll, { passive: true });
   checkScroll();
+}
+
+// Cookie Banner Logic
+function initCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+  if (!banner || !acceptBtn) return;
+
+  if (!localStorage.getItem('lgpd_cookie_consent')) {
+    setTimeout(() => {
+      banner.classList.add('show');
+    }, 1000);
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('lgpd_cookie_consent', 'true');
+    banner.classList.remove('show');
+  });
 }
