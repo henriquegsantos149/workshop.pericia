@@ -200,7 +200,7 @@ function initEnrollmentForm() {
       const iti = phoneInput ? phoneInput._iti : null;
       let cleanPhone = '';
 
-      // Phone validation & sanitization (only raw digits sent)
+      // Phone validation & sanitization (only raw digits sent without +55)
       if (phoneInput) {
         const rawValue = phoneInput.value.trim();
         if (iti) {
@@ -215,8 +215,8 @@ function initEnrollmentForm() {
               phoneInput.reportValidity();
               return;
             }
-            // Envia estritamente os dígitos puros sem espaços, traços ou parênteses
-            cleanPhone = '55' + digits;
+            // Envia estritamente os dígitos sem o +55 (ex: 11999999999)
+            cleanPhone = digits;
           } else {
             if (!iti.isValidNumber()) {
               phoneInput.setCustomValidity('Número de telefone inválido para o país selecionado.');
@@ -227,7 +227,11 @@ function initEnrollmentForm() {
             cleanPhone = num ? num.replace(/\D/g, '') : (countryData.dialCode + rawValue.replace(/\D/g, ''));
           }
         } else {
-          cleanPhone = rawValue.replace(/\D/g, '');
+          let digits = rawValue.replace(/\D/g, '');
+          if (digits.startsWith('55') && digits.length > 11) {
+            digits = digits.substring(2);
+          }
+          cleanPhone = digits;
         }
       }
 

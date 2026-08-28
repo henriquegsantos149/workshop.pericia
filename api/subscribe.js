@@ -69,7 +69,10 @@ export default async function handler(req, res) {
   const lastName = nameParts.slice(1).join(' ');
 
   const rawPhone = (phone || whatsapp || '').toString();
-  const cleanPhone = rawPhone.replace(/\D/g, '');
+  let cleanPhone = rawPhone.replace(/\D/g, '');
+  if (cleanPhone.startsWith('55') && cleanPhone.length > 11) {
+    cleanPhone = cleanPhone.substring(2);
+  }
 
   const contactPayload = {
     contact: {
@@ -90,6 +93,9 @@ export default async function handler(req, res) {
   const clientIp = (req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '').split(',')[0];
   const clientUserAgent = req.headers['user-agent'] || '';
 
+  const phoneForMeta = cleanPhone.length <= 11 ? '55' + cleanPhone : cleanPhone;
+  const phoneHashes = [hashData(phoneForMeta), hashData(cleanPhone)].filter(Boolean);
+
   const metaEvents = [
     {
       event_name: 'Lead',
@@ -99,7 +105,7 @@ export default async function handler(req, res) {
       event_source_url: 'https://curso.ambientalpro.com.br/pericia-ambiental',
       user_data: {
         em: [hashData(email)],
-        ph: [hashData(cleanPhone)],
+        ph: phoneHashes,
         client_ip_address: clientIp,
         client_user_agent: clientUserAgent,
         fbp: fbp,
@@ -117,7 +123,7 @@ export default async function handler(req, res) {
       event_source_url: 'https://curso.ambientalpro.com.br/pericia-ambiental',
       user_data: {
         em: [hashData(email)],
-        ph: [hashData(cleanPhone)],
+        ph: phoneHashes,
         client_ip_address: clientIp,
         client_user_agent: clientUserAgent,
         fbp: fbp,
