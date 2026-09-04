@@ -626,8 +626,7 @@ function initPromoCountdown() {
       const diff = target - now;
 
       if (diff > 0) {
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
+        const h = Math.floor(diff / 3600000);
         const m = Math.floor((diff % 3600000) / 60000);
         const s = Math.floor((diff % 60000) / 1000);
 
@@ -637,12 +636,11 @@ function initPromoCountdown() {
           });
         };
 
-        setEl('cd-days', d);
         setEl('cd-hours', h);
         setEl('cd-minutes', m);
         setEl('cd-seconds', s);
       } else {
-        ['cd-days', 'cd-hours', 'cd-minutes', 'cd-seconds'].forEach(cls => {
+        ['cd-hours', 'cd-minutes', 'cd-seconds'].forEach(cls => {
           document.querySelectorAll('.' + cls).forEach(el => el.textContent = '00');
         });
       }
