@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initEnrollmentModal();
   initMobileStickyBar();
   initCookieBanner();
+  initCountdownBanner();
 });
 
 // Sticky Header behavior
@@ -531,4 +532,41 @@ function initCookieBanner() {
     banner.classList.remove('show');
   });
 }
+
+// Countdown Timer Banner (Ends at 23:59:59 today)
+function initCountdownBanner() {
+  const hoursEl = document.getElementById('countdown-hours');
+  const minutesEl = document.getElementById('countdown-minutes');
+  const secondsEl = document.getElementById('countdown-seconds');
+  if (!hoursEl || !minutesEl || !secondsEl) return;
+
+  function updateCountdown() {
+    const now = new Date();
+    const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+    let diff = endOfDay.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      return;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+}
+
 

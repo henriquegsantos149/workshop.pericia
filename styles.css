@@ -4214,5 +4214,260 @@ a {
   display: block;
 }
 
+/* ========================================================
+   Fixed Bottom Bonus Countdown Banner
+   ======================================================== */
+.fixed-bonus-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(8, 13, 8, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(184, 204, 59, 0.45);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.75), 0 0 25px rgba(184, 204, 59, 0.15);
+  padding: 10px 0;
+}
+
+.bonus-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bonus-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.bonus-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(184, 204, 59, 0.25), rgba(121, 136, 31, 0.4));
+  border: 1px solid rgba(184, 204, 59, 0.6);
+  color: var(--color-primary);
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(184, 204, 59, 0.25);
+}
+
+.bonus-banner-badge i,
+.bonus-banner-badge svg {
+  width: 14px;
+  height: 14px;
+  color: #d4e84e;
+  animation: pulse 1.5s infinite;
+}
+
+.bonus-banner-text {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bonus-banner-lead {
+  color: var(--color-text-muted-light);
+  font-size: 0.88rem;
+}
+
+.bonus-banner-highlight {
+  color: var(--color-primary);
+  font-weight: 800;
+  text-shadow: 0 0 12px rgba(184, 204, 59, 0.3);
+}
+
+.bonus-banner-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.bonus-banner-timer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.timer-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted-light);
+  white-space: nowrap;
+}
+
+.countdown-display {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.countdown-unit {
+  display: flex;
+  align-items: baseline;
+  background: transparent;
+  border: none;
+  padding: 0 2px;
+}
+
+.countdown-val {
+  font-family: var(--font-title);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  min-width: 22px;
+  text-align: center;
+}
+
+.countdown-lbl {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-left: 2px;
+  text-transform: uppercase;
+}
+
+.countdown-sep {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.bonus-banner-action {
+  flex-shrink: 0;
+}
+
+.bonus-banner-btn {
+  padding: 10px 22px !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  border-radius: 30px !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-shadow: 0 0 20px rgba(184, 204, 59, 0.35) !important;
+  text-decoration: none !important;
+}
+
+.bonus-banner-btn i,
+.bonus-banner-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.bonus-banner-btn:hover i,
+.bonus-banner-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Page body padding to prevent overlap with footer */
+body {
+  padding-bottom: 75px;
+}
+
+@media (max-width: 1100px) {
+  .bonus-banner-lead {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .fixed-bonus-banner {
+    padding: 8px 0;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+
+  body {
+    padding-bottom: 105px !important;
+  }
+
+  .bonus-banner-container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .bonus-banner-info {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .bonus-banner-badge {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .bonus-banner-text {
+    font-size: 0.82rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .bonus-banner-controls {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .bonus-banner-timer {
+    padding: 4px 8px;
+    gap: 4px;
+  }
+
+  .timer-label {
+    display: none;
+  }
+
+  .countdown-unit {
+    padding: 2px 5px;
+  }
+
+  .countdown-val {
+    font-size: 0.95rem;
+    min-width: 18px;
+  }
+
+  .bonus-banner-btn {
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+
 
 
