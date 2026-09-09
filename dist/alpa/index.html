@@ -37,8 +37,8 @@
   
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script type="module" crossorigin src="/assets/script-BJ5m7vle.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/script-DqzabvMq.css">
+  <script type="module" crossorigin src="/assets/script-C5bFu4tr.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-DJcnK2gM.css">
 </head>
 <body>
 
@@ -240,7 +240,6 @@
     <section id="sobre" class="section-padding bg-dark-layer">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px;">ESTRUTURA COMPLETA</span>
           <h2 class="section-title">Sobre o <span class="gradient-text">Curso</span></h2>
           <p class="section-desc">Tudo o que você precisa saber sobre a estrutura técnica, certificação e modalidade da Pós-Graduação.</p>
         </div>
@@ -310,10 +309,9 @@
     </section>
 
     <!-- Conteúdo Programático dos 11 Módulos (ESCURA) -->
-    <section id="curriculo" class="section-padding bg-dark-layer" style="padding-top: 0;">
+    <section id="curriculo" class="section-padding bg-dark-layer">
       <div class="container max-w-lg">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px;">GRADE CURRICULAR</span>
           <h2 class="section-title">Conteúdo <span class="gradient-text">Programático</span></h2>
           <p class="section-desc">11 módulos desenhados para conectar a teoria à prática, com foco absoluto nas exigências do mercado.</p>
         </div>
@@ -559,7 +557,6 @@
     <section id="habilidades" class="section-padding bg-light-layer">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px;">COMPETÊNCIAS PROFISSIONAIS</span>
           <h2 class="section-title">Habilidades e <span class="gradient-text">Resultados Esperados</span></h2>
           <p class="section-desc">Desenvolva as competências mais valorizadas pelo mercado de consultoria, indústria e perícia jurídica.</p>
         </div>
@@ -620,7 +617,6 @@
     <section id="aplicacoes" class="section-padding bg-dark-layer">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px;">CAMPOS DE ATUAÇÃO</span>
           <h2 class="section-title">Aplicações <span class="gradient-text">Práticas</span></h2>
           <p class="section-desc">Descubra os principais nichos de mercado onde você poderá atuar como especialista.</p>
         </div>
@@ -673,7 +669,7 @@
 
           <!-- 6 -->
           <div class="app-card">
-            <img src="/applications/app_escritorios.webp" alt="Escritórios Jurídicos" class="app-card-img">
+            <img src="/escritorio.png" onerror="this.onerror=null;this.src='/alpa/escritorio.png';" alt="Escritórios Jurídicos" class="app-card-img">
             <div class="app-card-body">
               <h3 class="app-card-title">Escritórios Jurídicos</h3>
               <p class="app-card-desc">Suporte técnico-pericial e elaboração de pareceres para defesa ou proposição de ações ligadas a danos ambientais.</p>
@@ -755,96 +751,124 @@
     </section>
 
     <!-- Corpo Docente (CLARA) -->
-    <section id="professores" class="section-padding bg-light-layer" style="padding-top: 0;">
+    <section id="professores" class="section-padding bg-light-layer">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px;">ESPECIALISTAS DE MERCADO</span>
           <h2 class="section-title">Corpo <span class="gradient-text">Docente</span></h2>
           <p class="section-desc">Aprenda diretamente com profissionais de referência que atuam na linha de frente dos maiores casos do país.</p>
         </div>
 
-        <div class="faculty-grid reveal delay-1">
-          <!-- Henrique -->
-          <div class="faculty-card">
-            <div class="faculty-img-wrapper">
-              <img src="/faculty/henrique.webp" alt="Henrique Gonzalez" class="faculty-img">
+        <div class="faculty-carousel-wrapper reveal delay-1">
+          <!-- Desktop Navigation Arrows -->
+          <button id="faculty-prev" class="faculty-carousel-btn prev" aria-label="Professor Anterior">
+            <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i>
+          </button>
+          
+          <button id="faculty-next" class="faculty-carousel-btn next" aria-label="Próximo Professor">
+            <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i>
+          </button>
+
+          <!-- Carousel Track -->
+          <div id="faculty-carousel-track" class="faculty-carousel-track">
+            <!-- Henrique -->
+            <div class="faculty-card">
+              <div class="faculty-img-wrapper">
+                <img src="/faculty/henrique.webp" alt="Henrique Gonzalez" class="faculty-img">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Henrique Gonzalez</h3>
+                <span class="faculty-title">Engenheiro Ambiental (UFRJ / UTS)</span>
+                <p class="faculty-resume">Especialista em Geotecnologias com formação internacional na Austrália. Já capacitou mais de 70.000 profissionais em análise espacial aplicada.</p>
+              </div>
             </div>
-            <div class="faculty-info">
-              <h3 class="faculty-name">Henrique Gonzalez</h3>
-              <span class="faculty-title">Engenheiro Ambiental (UFRJ / UTS)</span>
-              <p class="faculty-resume">Especialista em Geotecnologias com formação internacional na Austrália. Já capacitou mais de 70.000 profissionais em análise espacial aplicada.</p>
+
+            <!-- Rafael -->
+            <div class="faculty-card">
+              <div class="faculty-img-wrapper">
+                <img src="/faculty/rafael.webp" alt="Rafael Timbola" class="faculty-img">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Rafael Timbola</h3>
+                <span class="faculty-title">Mestre e Doutor em Engenharia</span>
+                <p class="faculty-resume">Engenheiro ambiental com 14 anos de experiência na área pericial. Fundador da empresa O Perito Ambiental e consultor renomado em laudos judiciais.</p>
+              </div>
+            </div>
+
+            <!-- Bruna -->
+            <div class="faculty-card">
+              <div class="faculty-img-wrapper">
+                <img src="/faculty/bruna.webp" alt="Bruna Balestrin Piaia" class="faculty-img">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Bruna Balestrin Piaia</h3>
+                <span class="faculty-title">Doutora em Engenharia Florestal</span>
+                <p class="faculty-resume">Mestre e Doutora pela UFSM com pós-doutorado em Engenharia Agrícola. Especialista em Perícia e Auditoria Ambiental com foco em restauração ecológica.</p>
+              </div>
+            </div>
+
+            <!-- Hugo -->
+            <div class="faculty-card">
+              <div class="faculty-img-wrapper">
+                <img src="/faculty/hugo.webp" alt="Hugo Ferreira" class="faculty-img">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Hugo Ferreira</h3>
+                <span class="faculty-title">Mestre em Gestão de Riscos (UFPA)</span>
+                <p class="faculty-resume">Técnico em Cartografia no Serviço Geológico do Brasil (SGB). Especialista em Perícia Ambiental e Geoprocessamento com foco em mudanças climáticas.</p>
+              </div>
+            </div>
+
+            <!-- Anelise -->
+            <div class="faculty-card">
+              <div class="faculty-img-wrapper">
+                <img src="/faculty/anelise.webp" alt="Anelise Gomes da Silva" class="faculty-img">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Anelise Gomes da Silva</h3>
+                <span class="faculty-title">Doutoranda em Ciências Ambientais (USP)</span>
+                <p class="faculty-resume">Mestre em Engenharia Ambiental. Especialista em políticas públicas ambientais, economia ecológica e valoração econômica de serviços ecossistêmicos.</p>
+              </div>
+            </div>
+
+            <!-- Relva -->
+            <div class="faculty-card">
+              <div class="faculty-img-wrapper">
+                <img src="/faculty/relva.webp" alt="Relva Beltrão" class="faculty-img">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Relva Beltrão</h3>
+                <span class="faculty-title">Mestre em Tecnologia Ambiental</span>
+                <p class="faculty-resume">Bióloga, auditora líder SGI e Lixo Zero. Mais de 15 anos de experiência prática em gestão de resíduos sólidos e auditorias de conformidade legal.</p>
+              </div>
+            </div>
+
+            <!-- Jéssica -->
+            <div class="faculty-card">
+              <div class="faculty-img-wrapper">
+                <img src="/faculty/jessica.webp" alt="Jéssica Michalak Besen" class="faculty-img">
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">Jéssica Michalak Besen</h3>
+                <span class="faculty-title">Engenheira Ambiental (PUC-PR)</span>
+                <p class="faculty-resume">Especialista em Segurança do Trabalho. Atua desde 2011 em consultoria com vasta vivência em licenciamento industrial e estudos de impacto ambiental.</p>
+              </div>
             </div>
           </div>
 
-          <!-- Rafael -->
-          <div class="faculty-card">
-            <div class="faculty-img-wrapper">
-              <img src="/faculty/rafael.webp" alt="Rafael Timbola" class="faculty-img">
+          <!-- Carousel Footer: Mobile navigation + Dots -->
+          <div class="faculty-carousel-footer">
+            <div class="faculty-carousel-mobile-nav">
+              <button id="faculty-mobile-prev" class="faculty-mobile-btn" aria-label="Anterior">
+                <i data-lucide="chevron-left" style="width: 20px; height: 20px;"></i>
+              </button>
             </div>
-            <div class="faculty-info">
-              <h3 class="faculty-name">Rafael Timbola</h3>
-              <span class="faculty-title">Mestre e Doutor em Engenharia</span>
-              <p class="faculty-resume">Engenheiro ambiental com 14 anos de experiência na área pericial. Fundador da empresa O Perito Ambiental e consultor renomado em laudos judiciais.</p>
-            </div>
-          </div>
+            
+            <div id="faculty-dots" class="faculty-carousel-dots"></div>
 
-          <!-- Bruna -->
-          <div class="faculty-card">
-            <div class="faculty-img-wrapper">
-              <img src="/faculty/bruna.webp" alt="Bruna Balestrin Piaia" class="faculty-img">
-            </div>
-            <div class="faculty-info">
-              <h3 class="faculty-name">Bruna Balestrin Piaia</h3>
-              <span class="faculty-title">Doutora em Engenharia Florestal</span>
-              <p class="faculty-resume">Mestre e Doutora pela UFSM com pós-doutorado em Engenharia Agrícola. Especialista em Perícia e Auditoria Ambiental com foco em restauração ecológica.</p>
-            </div>
-          </div>
-
-          <!-- Hugo -->
-          <div class="faculty-card">
-            <div class="faculty-img-wrapper">
-              <img src="/faculty/hugo.webp" alt="Hugo Ferreira" class="faculty-img">
-            </div>
-            <div class="faculty-info">
-              <h3 class="faculty-name">Hugo Ferreira</h3>
-              <span class="faculty-title">Mestre em Gestão de Riscos (UFPA)</span>
-              <p class="faculty-resume">Técnico em Cartografia no Serviço Geológico do Brasil (SGB). Especialista em Perícia Ambiental e Geoprocessamento com foco em mudanças climáticas.</p>
-            </div>
-          </div>
-
-          <!-- Anelise -->
-          <div class="faculty-card">
-            <div class="faculty-img-wrapper">
-              <img src="/faculty/anelise.webp" alt="Anelise Gomes da Silva" class="faculty-img">
-            </div>
-            <div class="faculty-info">
-              <h3 class="faculty-name">Anelise Gomes da Silva</h3>
-              <span class="faculty-title">Doutoranda em Ciências Ambientais (USP)</span>
-              <p class="faculty-resume">Mestre em Engenharia Ambiental. Especialista em políticas públicas ambientais, economia ecológica e valoração econômica de serviços ecossistêmicos.</p>
-            </div>
-          </div>
-
-          <!-- Relva -->
-          <div class="faculty-card">
-            <div class="faculty-img-wrapper">
-              <img src="/faculty/relva.webp" alt="Relva Beltrão" class="faculty-img">
-            </div>
-            <div class="faculty-info">
-              <h3 class="faculty-name">Relva Beltrão</h3>
-              <span class="faculty-title">Mestre em Tecnologia Ambiental</span>
-              <p class="faculty-resume">Bióloga, auditora líder SGI e Lixo Zero. Mais de 15 anos de experiência prática em gestão de resíduos sólidos e auditorias de conformidade legal.</p>
-            </div>
-          </div>
-
-          <!-- Jéssica -->
-          <div class="faculty-card">
-            <div class="faculty-img-wrapper">
-              <img src="/faculty/jessica.webp" alt="Jéssica Michalak Besen" class="faculty-img">
-            </div>
-            <div class="faculty-info">
-              <h3 class="faculty-name">Jéssica Michalak Besen</h3>
-              <span class="faculty-title">Engenheira Ambiental (PUC-PR)</span>
-              <p class="faculty-resume">Especialista em Segurança do Trabalho. Atua desde 2011 em consultoria com vasta vivência em licenciamento industrial e estudos de impacto ambiental.</p>
+            <div class="faculty-carousel-mobile-nav">
+              <button id="faculty-mobile-next" class="faculty-mobile-btn" aria-label="Próximo">
+                <i data-lucide="chevron-right" style="width: 20px; height: 20px;"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -855,24 +879,49 @@
     <section id="depoimentos" class="section-padding bg-dark-layer">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px;">RESULTADOS REAIS</span>
           <h2 class="section-title">O que dizem nossos <span class="gradient-text">Especialistas</span></h2>
           <p class="section-desc">Prova real do impacto da nossa metodologia na carreira de profissionais formados.</p>
         </div>
 
-        <div class="testi-grid reveal delay-1">
-          <div class="testi-card">
-            <img src="/testimonials/testi1.jpg" alt="Depoimento Aluno Ambiental Pro" class="lightbox-trigger">
+        <div class="testi-carousel-container reveal delay-1">
+          <div class="testi-stage" id="testi-stage">
+            <!-- Navigation Arrows -->
+            <button id="testi-prev" class="testi-nav-arrow prev" aria-label="Depoimento Anterior">
+              <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i>
+            </button>
+            
+            <button id="testi-next" class="testi-nav-arrow next" aria-label="Próximo Depoimento">
+              <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i>
+            </button>
+
+            <!-- Slides (3D Coverflow) -->
+            <div class="testi-slide pos-center" data-index="0">
+              <div class="testi-slide-card">
+                <img src="/testimonials/testi1.jpg" alt="Depoimento Luciana Souza" loading="lazy">
+              </div>
+            </div>
+
+            <div class="testi-slide pos-right" data-index="1">
+              <div class="testi-slide-card">
+                <img src="/testimonials/testi2.webp" alt="Depoimento Thiago Martins" loading="lazy">
+              </div>
+            </div>
+
+            <div class="testi-slide pos-hidden" data-index="2">
+              <div class="testi-slide-card">
+                <img src="/testimonials/testi3.webp" alt="Depoimento Aluno" loading="lazy">
+              </div>
+            </div>
+
+            <div class="testi-slide pos-left" data-index="3">
+              <div class="testi-slide-card">
+                <img src="/testimonials/testi4.jpg" alt="Depoimento Rafael" loading="lazy">
+              </div>
+            </div>
           </div>
-          <div class="testi-card">
-            <img src="/testimonials/testi2.webp" alt="Depoimento Aluno Ambiental Pro" class="lightbox-trigger">
-          </div>
-          <div class="testi-card">
-            <img src="/testimonials/testi3.webp" alt="Depoimento Aluno Ambiental Pro" class="lightbox-trigger">
-          </div>
-          <div class="testi-card">
-            <img src="/testimonials/testi4.jpg" alt="Depoimento Aluno Ambiental Pro" class="lightbox-trigger">
-          </div>
+
+          <!-- Indicators / Dots -->
+          <div id="testi-dots" class="testi-dots"></div>
         </div>
       </div>
     </section>
@@ -881,7 +930,6 @@
     <section id="investimento" class="section-padding pricing-section bg-light-layer">
       <div class="container max-w-lg">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px; background: rgba(184, 204, 59, 0.2); color: #5C6A12; border: 1px solid rgba(184, 204, 59, 0.4);">CONDIÇÃO EXCLUSIVA</span>
           <h2 class="section-title">Investimento <span class="gradient-text">Exclusivo</span></h2>
           <p class="section-desc">Garanta sua matrícula na especialização mais completa do mercado com R$ 5.985,00 de desconto por tempo limitado.</p>
         </div>
@@ -935,8 +983,9 @@
             </div>
 
             <div class="pricing-action">
-              <a href="https://pay.voompcreators.com.br/13461/?cupom=WORKGEOPER" target="_blank" rel="noopener" class="btn btn-primary btn-block btn-lg btn-glow" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                Garantir Minha Vaga com 50% de Desconto <i data-lucide="arrow-right"></i>
+              <a href="https://pay.voompcreators.com.br/13461/?cupom=WORKGEOPER" target="_blank" rel="noopener" class="btn btn-primary btn-block btn-lg btn-glow" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap; padding: 16px 20px; font-size: clamp(0.85rem, 2.2vw, 1.05rem);">
+                <span>Garantir Minha Vaga com 50% de Desconto</span>
+                <i data-lucide="arrow-right" style="flex-shrink: 0; width: 18px; height: 18px;"></i>
               </a>
               <span class="pricing-guarantee">
                 <i data-lucide="shield-check"></i> Garantia incondicional de 7 dias
@@ -951,7 +1000,6 @@
     <section id="faq" class="section-padding faq-section bg-dark-layer">
       <div class="container max-w-lg">
         <div class="section-header text-center reveal">
-          <span class="price-badge" style="margin-bottom: 12px;">TIRE SUAS DÚVIDAS</span>
           <h2 class="section-title">Perguntas <span class="gradient-text">Frequentes</span></h2>
           <p class="section-desc">Principais dúvidas sobre o reconhecimento pelo MEC, metodologia e habilitação profissional.</p>
         </div>
@@ -1155,6 +1203,149 @@
             link.href = url.toString();
           } catch(e) {}
         });
+      }
+
+      // Faculty Carousel Functionality
+      const facultyTrack = document.getElementById('faculty-carousel-track');
+      const facultyPrev = document.getElementById('faculty-prev');
+      const facultyNext = document.getElementById('faculty-next');
+      const facultyMobilePrev = document.getElementById('faculty-mobile-prev');
+      const facultyMobileNext = document.getElementById('faculty-mobile-next');
+      const facultyDots = document.getElementById('faculty-dots');
+
+      if (facultyTrack) {
+        const facultyCards = facultyTrack.querySelectorAll('.faculty-card');
+        
+        function getStep() {
+          const firstCard = facultyCards[0];
+          return firstCard ? firstCard.offsetWidth + 24 : 320;
+        }
+
+        // Generate Dots
+        if (facultyDots && facultyCards.length > 0) {
+          facultyDots.innerHTML = '';
+          facultyCards.forEach((_, idx) => {
+            const dot = document.createElement('button');
+            dot.className = `faculty-carousel-dot ${idx === 0 ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Ir para professor ${idx + 1}`);
+            dot.addEventListener('click', () => {
+              facultyTrack.scrollTo({ left: idx * getStep(), behavior: 'smooth' });
+            });
+            facultyDots.appendChild(dot);
+          });
+
+          // Sync Active Dot on Scroll
+          facultyTrack.addEventListener('scroll', () => {
+            const step = getStep();
+            const activeIdx = Math.round(facultyTrack.scrollLeft / step);
+            const allDots = facultyDots.querySelectorAll('.faculty-carousel-dot');
+            allDots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === activeIdx);
+            });
+          }, { passive: true });
+        }
+
+        const scrollNext = () => facultyTrack.scrollBy({ left: getStep(), behavior: 'smooth' });
+        const scrollPrev = () => facultyTrack.scrollBy({ left: -getStep(), behavior: 'smooth' });
+
+        if (facultyPrev) facultyPrev.addEventListener('click', scrollPrev);
+        if (facultyNext) facultyNext.addEventListener('click', scrollNext);
+        if (facultyMobilePrev) facultyMobilePrev.addEventListener('click', scrollPrev);
+        if (facultyMobileNext) facultyMobileNext.addEventListener('click', scrollNext);
+      }
+
+      // Testimonials 3D Stage Carousel (Exact from Pós ALPA)
+      const testiStage = document.getElementById('testi-stage');
+      const testiSlides = document.querySelectorAll('.testi-slide');
+      const testiPrev = document.getElementById('testi-prev');
+      const testiNext = document.getElementById('testi-next');
+      const testiDots = document.getElementById('testi-dots');
+
+      if (testiStage && testiSlides.length > 0) {
+        let currentTestiIdx = 0;
+        const totalTesti = testiSlides.length;
+
+        function updateTestiSlides() {
+          testiSlides.forEach((slide, idx) => {
+            const diff = (idx - currentTestiIdx + totalTesti) % totalTesti;
+            slide.classList.remove('pos-center', 'pos-left', 'pos-right', 'pos-hidden');
+            
+            if (diff === 0) {
+              slide.classList.add('pos-center');
+            } else if (diff === 1) {
+              slide.classList.add('pos-right');
+            } else if (diff === totalTesti - 1) {
+              slide.classList.add('pos-left');
+            } else {
+              slide.classList.add('pos-hidden');
+            }
+          });
+
+          if (testiDots) {
+            const dots = testiDots.querySelectorAll('.testi-dot');
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === currentTestiIdx);
+            });
+          }
+        }
+
+        function nextTesti() {
+          currentTestiIdx = (currentTestiIdx + 1) % totalTesti;
+          updateTestiSlides();
+        }
+
+        function prevTesti() {
+          currentTestiIdx = (currentTestiIdx - 1 + totalTesti) % totalTesti;
+          updateTestiSlides();
+        }
+
+        if (testiNext) testiNext.addEventListener('click', nextTesti);
+        if (testiPrev) testiPrev.addEventListener('click', prevTesti);
+
+        // Click side slides to focus
+        testiSlides.forEach((slide) => {
+          slide.addEventListener('click', () => {
+            if (slide.classList.contains('pos-left')) {
+              prevTesti();
+            } else if (slide.classList.contains('pos-right')) {
+              nextTesti();
+            }
+          });
+        });
+
+        // Generate Dots
+        if (testiDots) {
+          testiDots.innerHTML = '';
+          testiSlides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = `testi-dot ${i === 0 ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Ir para depoimento ${i + 1}`);
+            dot.addEventListener('click', () => {
+              currentTestiIdx = i;
+              updateTestiSlides();
+            });
+            testiDots.appendChild(dot);
+          });
+        }
+
+        // Touch Swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        testiStage.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        testiStage.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) nextTesti();
+            else prevTesti();
+          }
+        }, { passive: true });
+
+        updateTestiSlides();
       }
 
       // Re-run lucide icons if loaded
