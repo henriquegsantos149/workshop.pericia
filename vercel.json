@@ -1,11 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://www.ambientalpro.com.br",
-      "permanent": false
-    }
-  ]
+  "trailingSlash": false
 }
