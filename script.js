@@ -191,7 +191,7 @@ function initEnrollmentForm() {
   const forms = document.querySelectorAll('#enrollment-form, #hero-registration-form, .registration-form');
   if (forms.length === 0) return;
 
-  const CHECKOUT_URL = "https://pay.voompcreators.com.br/16458/offer/6W9NvQ";
+  const CHECKOUT_URL = "https://pay.voompcreators.com.br/AdpKAz3YJ35uCxob/offer/OTHWlx";
 
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
@@ -568,5 +568,4 @@ function initCountdownBanner() {
     lucide.createIcons();
   }
 }
-
 
