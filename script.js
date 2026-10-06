@@ -194,11 +194,10 @@ function initEnrollmentForm() {
   const CHECKOUT_URL = "https://pay.voompcreators.com.br/16552/offer/yurdnS";
 
   forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       const phoneInput = form.querySelector('input[type="tel"]');
-      let cleanPhone = '';
 
       // Phone validation & sanitization (strictly DDD + number, never +55)
       if (phoneInput) {
@@ -212,7 +211,6 @@ function initEnrollmentForm() {
           phoneInput.reportValidity();
           return;
         }
-        cleanPhone = digits;
       }
 
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -223,95 +221,38 @@ function initEnrollmentForm() {
       submitBtn.innerHTML = '<i data-lucide="loader" class="animate-spin"></i> Processando inscrição...';
       if (typeof lucide !== 'undefined') lucide.createIcons();
 
-      // Capture form data
-      const formData = new FormData(form);
-      const name = formData.get('name') || '';
-      const email = formData.get('email') || '';
-      const education = formData.get('education') || formData.get('occupation') || '';
-      const education_area = formData.get('education_area') || '';
-
-      const getCookie = (name) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-      };
-
-      const eventId = 'lead_' + new Date().getTime() + '_' + Math.random().toString(36).substring(2, 9);
-
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
           content_name: 'Workshop Perícia Ambiental'
-        }, {
-          eventID: eventId
         });
       }
 
-      const formPayload = {
-        name,
-        email,
-        phone: cleanPhone,
-        whatsapp: cleanPhone,
-        education,
-        occupation: education,
-        education_area,
-        eventId,
-        fbp: getCookie('_fbp'),
-        fbc: getCookie('_fbc')
+      const data = new FormData(form);
+      const payload = {
+        name: data.get('name') || '', email: data.get('email') || '',
+        phone: (phoneInput?.value || '').replace(/\D/g, '').replace(/^55(?=\d{11}$)/, ''),
+        education: data.get('education') || data.get('occupation') || '',
+        education_area: data.get('education_area') || ''
       };
-
-      // Capture all UTM parameters from the current URL (both standard and prefixed)
-      const urlParams = new URLSearchParams(window.location.search);
-      const finalCheckoutUrl = new URL(CHECKOUT_URL);
-      
-      urlParams.forEach((value, key) => {
-        // Forward all URL params to the checkout URL
-        finalCheckoutUrl.searchParams.append(key, value);
-
-        const upperKey = key.toUpperCase();
-        const lowerKey = key.toLowerCase();
-
-        // Exact standard UTM matches
-        if (lowerKey.startsWith('utm_')) {
-          formPayload[lowerKey] = value;
-        }
-        
-        // Match prefixed UTMs (e.g. PAP_VD_UTM_SOURCE, WK_UTM_SOURCE, etc.)
-        if (upperKey.includes('UTM_SOURCE') && !formPayload.utm_source) {
-          formPayload.utm_source = value;
-        } else if (upperKey.includes('UTM_MEDIUM') && !formPayload.utm_medium) {
-          formPayload.utm_medium = value;
-        } else if (upperKey.includes('UTM_CAMPAIGN') && !formPayload.utm_campaign) {
-          formPayload.utm_campaign = value;
-        } else if (upperKey.includes('UTM_CONTENT') && !formPayload.utm_content) {
-          formPayload.utm_content = value;
-        } else if (upperKey.includes('UTM_TERM') && !formPayload.utm_term) {
-          formPayload.utm_term = value;
-        }
-      });
-
-      // Send to our secure Vercel API
-      fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formPayload)
-      })
-      .then(response => {
-        if (!response.ok) {
-          console.error('Failed to subscribe lead to ActiveCampaign');
-        }
-      })
-      .catch(error => {
-        console.error('Error calling subscribe API:', error);
-      })
-      .finally(() => {
-        // Redireciona para o checkout com os parâmetros UTM
-        submitBtn.innerHTML = '<i data-lucide="loader" class="animate-spin"></i> Redirecionando...';
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-        window.location.href = finalCheckoutUrl.toString();
-      });
+      const params = new URLSearchParams(window.location.search);
+      const checkout = new URL(CHECKOUT_URL);
+      params.forEach((value, key) => checkout.searchParams.append(key, value));
+      for (const field of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']) {
+        const match = [...params].find(([key]) => key.toLowerCase() === field)
+          || [...params].find(([key]) => key.toLowerCase().endsWith('_' + field));
+        if (match) payload[field] = match[1];
+      }
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload), signal: AbortSignal.timeout(15000)
+        });
+        if (!response.ok) console.error('Não foi possível registrar a inscrição.');
+      } catch {
+        console.error('Não foi possível registrar a inscrição.');
+      } finally {
+        window.location.href = checkout.toString();
+      }
     });
   });
 }
