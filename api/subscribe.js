@@ -15,10 +15,12 @@ export default async function handler(req, res) {
   const fieldValues = Object.entries(FIELD_IDS)
     .filter(([name]) => typeof body[name] === 'string' && body[name].trim())
     .map(([name, field]) => ({ field, value: body[name].trim() }));
-  const date = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit'
-  }).format(new Date());
-  fieldValues.push({ field: '920', value: date });
+  const dateParts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
+  }).formatToParts(new Date()).map(({ type, value }) => [type, value]));
+  const registrationDate = `${dateParts.year}-${dateParts.month}-${dateParts.day} ${dateParts.hour}:${dateParts.minute}:${dateParts.second}`;
+  fieldValues.push({ field: '920', value: registrationDate });
   const [firstName = '', ...lastNames] = String(body.name || '').trim().split(/\s+/);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 12000);
